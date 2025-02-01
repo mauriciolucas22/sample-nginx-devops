@@ -11,7 +11,7 @@ env:
   ECS_SERVICE: frontend
   ECS_CLUSTER: ecs-cluster
   ECS_TASK_DEFINITION: ./ecs/frontend.task-denifition.json
-  CONTAINER_NAME: frontend-nginx
+  CONTAINER_NAME: frontend
 
 permissions:
   contents: read
