@@ -1,0 +1,70 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:683163927432:task-definition/ecs-devops-na-nuvem-task:8",
+  "containerDefinitions": [
+    {
+      "name": "frontend",
+      "image": "683163927432.dkr.ecr.us-east-1.amazonaws.com/ecs-nginx",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "production"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/aws/ecs-cluster-devops-na-nuvem",
+          "awslogs-create-group": "true",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "ecs-devops-na-nuvem-task",
+  "executionRoleArn": "arn:aws:iam::683163927432:role/ecs-execution-role",
+  "networkMode": "awsvpc",
+  "revision": 8,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": ["EC2", "FARGATE"],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "1024",
+  "registeredAt": "2025-02-01T03:23:36.064Z",
+  "registeredBy": "arn:aws:sts::683163927432:assumed-role/eks-terraform/aws-go-sdk-1738380212987166000",
+  "tags": []
+}
